@@ -24,9 +24,14 @@ class AddSightingViewController: UITableViewController, UITextFieldDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue.identifier?.isEqual("ReturnInput")) {
-            if (!self.birdNameInput.text.isEmpty && !self.locationInput.text.isEmpty) {
+            let birdName:String = self.birdNameInput.text
+            let location:String = self.locationInput.text
+            if (countElements(birdName) > 0 && countElements(location) > 0) {
                 self.birdSighting = BirdSighting(name:self.birdNameInput.text, location:self.locationInput.text, date:NSDate())
             }
+//            if (!self.birdNameInput.text.isEmpty && !self.locationInput.text.isEmpty) {
+//                self.birdSighting = BirdSighting(name:self.birdNameInput.text, location:self.locationInput.text, date:NSDate())
+//            }
         }
     }
     
